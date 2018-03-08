@@ -6,7 +6,7 @@ new phrases.
 The module was created as a part of deploy script - to automate, for example, changing from debug mode to production, 
 to change databases users/passwords, to automate things things that normally you have to do at your own.
 
-###How to use
+### How to use
 You can use it by import as a module and using `Controller('input.in')` or by using command line:  `python Source.py input.in` 
 
 ### Input file schema
