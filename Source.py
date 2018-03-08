@@ -65,9 +65,7 @@ class Replacer:
             old_file_handler.close()
             new_content = ""
             for line in old_content:
-                print(line)
                 if line.find(self.phrase_old) > -1:
-                    print('Ping #1')
                     new_line = ""
                     tmp_line = line.split()
                     for element in tmp_line:
@@ -119,9 +117,14 @@ class Controller:
     def __init__(self, input_name):
         self.input_controller = InputFileReader(input_name)
         self.input_controller.read_file()
-        self.input_controller.print_container()
         self.manager = ReplaceManager(self.input_controller.get_container())
         self.manager.replace_paths()
+        self.print_done_info()
+
+    @staticmethod
+    def print_done_info():
+        print('All jobs done!')
+
 
 
 def main(input_name):
