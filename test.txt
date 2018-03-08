@@ -1,0 +1,3 @@
+badPhrase = []
+checkOldPhrase = something
+do not edit this
