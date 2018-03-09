@@ -1,5 +1,5 @@
 # Replacer module
-Actual version: 1.0.0
+Actual version: 1.1.2
 ### About
 From given file takes paths to files, phrases to replace and replacement phrase. And later rewrite file(s) with 
 new phrases. 
