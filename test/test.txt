@@ -1,3 +1,4 @@
 badPhrase = []
 checkOldPhrase = something
+that is new one
 do not edit this
