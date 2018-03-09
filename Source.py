@@ -21,7 +21,7 @@ class InputFileReader:
         '''
         Reading file line by line. Splitting each line to make a list from every element of line.
         Later these lists are added to main list (data_container)
-        :return: nothing
+        :return: none
         '''
         input_file_handler = open(self.input)
         for line in input_file_handler:
@@ -35,7 +35,7 @@ class InputFileReader:
         '''
         Cutting apostrophe sign from start or from end of string
         :param element: string
-        :return:
+        :return: string
         '''
         if element.startswith('\''):
             element = element[1:]
@@ -54,7 +54,7 @@ class InputFileReader:
     def print_container(self):
         '''
         Prints data_container (list)
-        :return:
+        :return: none
         '''
         for element in self.data_container:
             print(element)
@@ -69,7 +69,7 @@ class Replacer:
         Constructor
         :param file_path: string, path to file to rewrite
         :param old_phrase: string, phrase to replace
-        :param new_phrase: string, replacment phrase
+        :param new_phrase: string, replacement phrase
         '''
         self.path = file_path
         self.phrase_old = old_phrase
@@ -78,10 +78,8 @@ class Replacer:
     def replace(self):
         '''
         Replace function. Read lines from file, then checking each line if that contains searched phrase.
-        If contains, split line, replace element, checking if element is whole phrase or contains prefix or suffix.
-        Later connect line, add it to file. If phrase is not in line, just add a line to string.
-        After that save new content to the same file (overwrite its content)
-        :return:
+        If contains, adds [0:start] to tmp_line, later add replacement phrase, and rest of old line
+        :return: none
         '''
         try:
             old_file_handler = open(self.path, 'r')
@@ -108,8 +106,7 @@ class Replacer:
 
 class ReplaceManager:
     '''
-    Constructor takes as an argument(s): list of replace tasks.
-    container -- list - contains 3 element lists inside each element
+    Manage all replace tasks. Tasks are stored as a lists at container (list)
     '''
     def __init__(self, input_list):
         '''
@@ -120,27 +117,19 @@ class ReplaceManager:
 
     def replace_paths(self):
         '''
-
-        :return:
+        Replace every replacing task given in input file.
+        :return: none
         '''
-        '''Replace every replacing task given in input file.
-        Argument(s): none'''
         for element in self.container:
             tmp_replace = Replacer(element[0], element[1], element[2])
             tmp_replace.replace()
 
 
 class Controller:
-    '''
-        Constructor takes as an argument(s): input_name
-    input_name -- string - contains name of input file
-    Case sensitive.
-    Filename extension sensitive.
-    '''
     def __init__(self, input_name):
         '''
-
-        :param input_name:
+        Constructor.
+        :param input_name: string, name of input file
         '''
         self.input_controller = InputFileReader(input_name)
         self.input_controller.read_file()
@@ -151,8 +140,8 @@ class Controller:
     @staticmethod
     def print_done_info():
         '''
-
-        :return:
+        Static method. Print information about end of all tasks.
+        :return: none
         '''
         print('All jobs done!')
 
